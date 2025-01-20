@@ -1,50 +1,28 @@
-# Welcome to your Expo app 👋
+Working Steps
+Create a Carousel Component:
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Use a library like react-native-snap-carousel or implement a basic horizontal scroll view with FlatList.
+Define two placeholder items ("Sign of Type A" and "Sign of Type B").
+Install Required Dependencies (if using a library):
 
-## Get started
+Install react-native-snap-carousel or any other carousel library.
+Integrate the Carousel Component:
 
-1. Install dependencies
+Add the carousel to the bottom of the camera view using absolute positioning.
+Define Carousel Items:
 
-   ```bash
-   npm install
-   ```
+Create a dataset with the two placeholder 3D object names (e.g., "Sign of Type A" and "Sign of Type B").
+Render Carousel Items:
 
-2. Start the app
+Map each item in the dataset to display as a selectable card or thumbnail in the carousel.
+Handle Selection of a Sign:
 
-   ```bash
-    npx expo start
-   ```
+When a user selects an item in the carousel, highlight the selected sign (e.g., add a border or change background color).
+Prepare for 3D Object Display:
 
-In the output, you'll find options to open the app in a
+For now, show placeholder text or images for the signs in the carousel.
+Later, integrate actual 3D objects using an AR library (e.g., expo-three).
+Style the Carousel:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Ensure the carousel has proper padding and alignment at the bottom of the screen.
+Test it to avoid overlapping with the camera feed.
