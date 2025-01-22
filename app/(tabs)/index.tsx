@@ -1,21 +1,29 @@
-// import React, { useEffect, useState } from "react";
-// import { View, Text, StyleSheet } from "react-native";
+// import React, { useState } from "react";
+// import { View, Text, Button, StyleSheet } from "react-native";
 // import { CameraView, Camera } from "expo-camera";
+
+// import Carousel from "react-native-snap-carousel";
+// import { Dimensions } from "react-native";
+// import Slider from "@/components/Slider";
 
 // export default function HomeScreen() {
 //   const [hasPermission, setHasPermission] = useState<boolean | null>(null);
+//   const [showCamera, setShowCamera] = useState(false);
+//   const { width: screenWidth } = Dimensions.get("window");
 
-//   useEffect(() => {
-//     (async () => {
-//       const { status } = await Camera.requestCameraPermissionsAsync();
-//       setHasPermission(status === "granted");
-//     })();
-//   }, []);
+//   const requestCameraPermission = async () => {
+//     const { status } = await Camera.requestCameraPermissionsAsync();
+//     setHasPermission(status === "granted");
+//     if (status === "granted") {
+//       setShowCamera(true);
+//     }
+//   };
 
-//   if (hasPermission === null) {
+//   if (!showCamera) {
 //     return (
 //       <View style={styles.container}>
-//         <Text>Requesting camera permissions...</Text>
+//         {/* <Slider /> */}
+//         <Button title="Activate Camera" onPress={requestCameraPermission} />
 //       </View>
 //     );
 //   }
@@ -30,8 +38,8 @@
 
 //   return (
 //     <View style={{ flex: 1 }}>
-//       {/* Rendering CameraView without extra text */}
 //       <CameraView style={{ flex: 1 }} />
+//       <Slider style={styles.Innercontainer} />
 //     </View>
 //   );
 // }
@@ -41,7 +49,18 @@
 //     flex: 1,
 //     justifyContent: "center",
 //     alignItems: "center",
-//     backgroundColor: "white",
+//     backgroundColor: "blue",
+//   },
+//   text: {
+//     fontSize: 18,
+//     marginBottom: 20,
+//   },
+
+//   Innercontainer: {
+//     flex: 1,
+//     justifyContent: "center",
+//     alignItems: "center",
+//     backgroundColor: "transparent",
 //   },
 // });
 
@@ -49,9 +68,15 @@ import React, { useState } from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
 import { CameraView, Camera } from "expo-camera";
 
+import Carousel from "react-native-snap-carousel";
+import { Dimensions } from "react-native";
+import Slider from "@/components/Slider";
+import ImageSlider from "../data/SliderData";
+
 export default function HomeScreen() {
   const [hasPermission, setHasPermission] = useState<boolean | null>(null);
   const [showCamera, setShowCamera] = useState(false);
+  const { width: screenWidth } = Dimensions.get("window");
 
   const requestCameraPermission = async () => {
     const { status } = await Camera.requestCameraPermissionsAsync();
@@ -64,7 +89,6 @@ export default function HomeScreen() {
   if (!showCamera) {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>Welcome to AR Sign App</Text>
         <Button title="Activate Camera" onPress={requestCameraPermission} />
       </View>
     );
@@ -81,6 +105,7 @@ export default function HomeScreen() {
   return (
     <View style={{ flex: 1 }}>
       <CameraView style={{ flex: 1 }} />
+      <Slider itemList={ImageSlider} />
     </View>
   );
 }
@@ -90,7 +115,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "white",
+    backgroundColor: "blue",
   },
   text: {
     fontSize: 18,
